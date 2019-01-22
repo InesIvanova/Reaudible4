@@ -1,0 +1,14 @@
+.card {
+    cursor: pointer;
+}
+
+.card:hover {
+    border: 1px solid gray;
+    width: 19rem;
+    height: 30rem;
+}
+
+img {
+    width: 17rem;
+    height: 20rem;
+}

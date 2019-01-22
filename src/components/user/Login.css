@@ -1,0 +1,32 @@
+.login {
+    width: 30rem;
+    text-align: center;
+    margin: 5% auto;
+    border: 1px solid grey;
+    padding: 5%;
+    text-align: center;
+    
+}
+
+.form-control {
+    margin: 5% 0%;
+}
+
+.sign-up {
+    color: orange;
+    border-bottom: 1px solid orange;
+}
+
+.sign-up:hover {
+    border: none;
+    color: blue;
+}
+
+.error {
+    text-align: center;
+    color: red;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}

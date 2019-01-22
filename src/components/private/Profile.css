@@ -1,0 +1,24 @@
+.container {
+    margin: 8% 0;
+}
+
+.box {
+    border: 1px solid grey;
+    padding: 15% 8%;
+    height: 15rem;
+    width: 30rem;
+    -webkit-transition: all 0.5s;
+    transition: all 0.2s;
+}
+
+.buttonText {
+    color: green;
+}
+
+.box:hover {
+    width: 120%;
+    padding: 22% 8%;
+    height: 18rem;
+    width: 35rem;
+    background-color: lightgoldenrodyellow;
+}

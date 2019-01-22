@@ -1,0 +1,13 @@
+.form-control {
+    margin: 0%;
+    
+    
+}
+
+.request-form {
+    margin: 5% auto;
+    border: 1px solid grey;
+    padding: 5%;
+    text-align: center;
+    width: 40rem;
+}
