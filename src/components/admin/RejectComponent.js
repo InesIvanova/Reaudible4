@@ -3,7 +3,7 @@ import './DeleteComponent.css'
 import {Redirect} from 'react-router-dom'
 let firebase = require('firebase');
 let id = ''
-class DeleteComponent extends Component {
+class RejectComponent extends Component {
     constructor(props){
         super(props)
         this. state = {
@@ -19,7 +19,7 @@ class DeleteComponent extends Component {
         db.settings({
             timestampsInSnapshots:true
         })
-        db.collection('books').doc(id).delete().then((res) => {
+        db.collection('requestedBooks').doc(id).delete().then((res) => {
             console.log("Document successfully deleted!");
             this.setState({
                 toDashboard: true
@@ -38,7 +38,7 @@ class DeleteComponent extends Component {
                 <div className="col-md-4">
                 </div>
                 <div className="col-md-4">
-                <h1>Are you sure you want to delete this item?</h1>
+                <h1>Are you sure you want to reject this item?</h1>
                 <img className="strange-cat-pic" src='https://i.pinimg.com/originals/ac/c9/ad/acc9ad98cf762f2d867ae012adcc1bf1.gif' />
                 </div>
                 <div className="col-md-4">
@@ -60,4 +60,4 @@ class DeleteComponent extends Component {
     }
 }
 
-export default DeleteComponent;
+export default RejectComponent;

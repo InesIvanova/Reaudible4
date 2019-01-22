@@ -16,6 +16,7 @@ import PrivateAdminRoute from './RouteAdminGuard';
 import AdminProfile from './components/admin/AdminProfile';
 import RequestedBooks from './components/admin/RequestBooks';
 import DeleteComponent from './components/admin/DeleteComponent';
+import RejectComponent from './components/admin/RejectComponent';
 
 
 
@@ -38,6 +39,8 @@ const AppRoutes  = () => (
         <PrivateRoute path='/reset-pass' component={ResetPass} />
         <PrivateAdminRoute path='/admin-profile' component={AdminProfile} />
         <PrivateAdminRoute path='/delete/:id' component={DeleteComponent} />
+        <PrivateAdminRoute path='/reject/:id' component={RejectComponent} />
+
 
         
 

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import './BookForm.css';
+
 let firebase = require('firebase');
 
 class BookForm extends Component {
@@ -17,7 +19,8 @@ class BookForm extends Component {
             release_date: this.props.books.release_date,
             id: this.props.books.id,
             email: this.props.books.email,
-            name: this.props.books.name
+            name: this.props.books.name,
+
         }
         
 
@@ -67,6 +70,7 @@ class BookForm extends Component {
     
 
     render() {
+        let delPath = '/reject/' + this.state.id
         return (
             <form className="admin-form text-center" onSubmit={this.onFormSumbit}>
             <div className="form-group">
@@ -107,7 +111,7 @@ class BookForm extends Component {
                 <button type="submit"  className="btn btn-primary">Approve</button>
             </div>
             <div className="col-md-6">
-                <button type="button" onClick={this.rejectBook}  className="btn btn-danger">Reject</button>
+                <button type="button" className="btn btn-danger"><NavLink exact to={delPath} >Delete</NavLink></button>
             </div>
     </div>
     </form>
