@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card';
 import './Cards.css';
 
+
 const initialState = {
     /* etc */
 };
@@ -23,30 +24,31 @@ class Cards extends Component {
     constructor(props) {
         super(props) 
         this.state = {
-            value: ''
+            value: '',
+            messageShown: ''
         }
         items = []
 
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.handler = this.handler.bind(this);
+        this.componentWillMount = this.componentWillMount.bind(this);
        // this.rerender = this.rerender.bind(this);
 
     }
     componentWillMount() {
         let self = this;
         self.setState({'value': null})
-    }
-  
-    componentDidMount(event) {
-        var self = this;
+
         const db = firebase.firestore();
         db.settings({
             timestampsInSnapshots:true
         })
         
-        let arr=[];
-        db.collection("books").get().then(function(querySnapshot) {
+        
+        db.collection("books").get().then((querySnapshot) => {
+            let arr=[];
             console.log('query', querySnapshot)
-            querySnapshot.forEach(function(doc) { 
+            querySnapshot.forEach((doc) => { 
                 var obj = doc.data()
                 obj['id'] = doc.id;
                 arr.push(obj)
@@ -57,7 +59,7 @@ class Cards extends Component {
                 self.setState({
                     value: arr[index]
                 })
-                items.push(<div className="col-md-3 cards-margin"><Card  books={self.state.value}></Card></div>)        
+                items.push(<div className="col-md-3 cards-margin"><Card action={this.handler} books={self.state.value}></Card></div>)        
             }
             self.setState({
                 value: []
@@ -65,6 +67,16 @@ class Cards extends Component {
             arr = []
             
         })
+    }
+
+    handler() {
+       this.setState(this.state);
+        
+    }
+  
+    componentDidMount(event) {
+        var self = this;
+       
         
 
       }

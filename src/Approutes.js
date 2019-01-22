@@ -15,6 +15,7 @@ import ResetPass from './components/user/ResetPass';
 import PrivateAdminRoute from './RouteAdminGuard';
 import AdminProfile from './components/admin/AdminProfile';
 import RequestedBooks from './components/admin/RequestBooks';
+import DeleteComponent from './components/admin/DeleteComponent';
 
 
 
@@ -36,6 +37,8 @@ const AppRoutes  = () => (
         <PrivateRoute path='/profile' component={Profile} />
         <PrivateRoute path='/reset-pass' component={ResetPass} />
         <PrivateAdminRoute path='/admin-profile' component={AdminProfile} />
+        <PrivateAdminRoute path='/delete/:id' component={DeleteComponent} />
+
         
 
         <Route component={NoSuchPage} />

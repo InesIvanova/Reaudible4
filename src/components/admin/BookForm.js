@@ -60,7 +60,7 @@ class BookForm extends Component {
         let form = this.state;
         firebase.firestore().collection('requestedBooks').doc(form.id).delete().then(()=> {
             console.log('success rejected');
-            this.props.callback()
+            
         })
     }
 

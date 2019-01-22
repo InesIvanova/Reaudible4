@@ -21,6 +21,7 @@ class Card extends Component {
                 })
                 db.collection('books').doc(this.state.book.id).delete().then((res) => {
                     console.log("Document successfully deleted!");
+                    this.setState(this.state)
                     //pass to parent to rerender
                 })
             },
@@ -43,6 +44,8 @@ class Card extends Component {
         console.log('daleted', id);
     }
 
+    
+
    
 
     render() {
@@ -56,8 +59,9 @@ class Card extends Component {
             }
             else if (localStorage.getItem('admin')) {
                 item = downloadButton
-                deleteItem =  <button type="button" onClick={this.state.delete} className="btn btn-danger">Delete</button>;
-                clickitm = <button type="button"  onClick={this.state.rerender}  className="btn btn-danger">Try</button>;
+                let delPath = '/delete/' + this.state.book.id
+                deleteItem =  <button type="button" className="btn btn-danger"> <NavLink exact to={delPath} >Delete</NavLink></button>;
+                clickitm = <button type="button"  onClick={this.props.action}  className="btn btn-danger">Try</button>;
             }
             else {
                 item = startReading
