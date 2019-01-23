@@ -42,18 +42,22 @@ class BookRequest extends Component {
         let form = this.state;
         delete form['value']
         console.log(form);
+        
         console.log(this.state.isSuccess)
+
         service.postABook(form).then(() => {
-            
+            this.setState({
+                isSuccess: true
+            })
           });
         event.preventDefault();
   
     }
     
     render() {
-      if(this.state.value.isSuccess) {
+      if(this.state.isSuccess) {
         return(
-            <Route exact to='/' render={Homepage}> </Route>
+            <Route  path="/" component={Homepage}> </Route>
         )
     }
       else {

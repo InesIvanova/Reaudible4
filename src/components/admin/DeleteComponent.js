@@ -10,6 +10,8 @@ class DeleteComponent extends Component {
             toDashboard: false,
           }
         this.deleteItem = this.deleteItem.bind(this);
+        this.redirect = this.redirect.bind(this);
+
     }
     
     deleteItem(event) {
@@ -25,6 +27,12 @@ class DeleteComponent extends Component {
                 toDashboard: true
             })
             //pass to parent to rerender
+        })
+    }
+
+    redirect() {
+        this.setState({
+            toDashboard: true
         })
     }
     
@@ -50,7 +58,7 @@ class DeleteComponent extends Component {
                     <button type="button" className="btn btn-danger" onClick={this.deleteItem} > Delete</button>
                 </div>
                 <div className="col-md-2">
-                <button className="btn btn-primary"> Profile</button>
+                <button className="btn btn-primary" onClick={this.redirect}> Profile</button>
 
                 </div>
                 <div className="col-md-4"></div>

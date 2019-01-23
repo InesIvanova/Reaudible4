@@ -10,3 +10,7 @@ img {
     width: 100%;
     height: 25rem;
 }
+
+.red-border {
+    border: 1px solid red;
+}

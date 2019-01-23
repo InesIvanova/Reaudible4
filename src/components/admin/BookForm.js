@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import './BookForm.css';
 
 let firebase = require('firebase');
@@ -20,6 +20,7 @@ class BookForm extends Component {
             id: this.props.books.id,
             email: this.props.books.email,
             name: this.props.books.name,
+            toDashboard: false
 
         }
         
@@ -52,6 +53,9 @@ class BookForm extends Component {
         firebase.firestore().collection('books').add(form).then((book) => {
             firebase.firestore().collection('requestedBooks').doc(form.id).delete().then(()=> {
                 console.log('success deleted')
+                this.setState({
+                    toDashboard: true
+                })
             })
             console.log('success added', book)
         })
@@ -71,6 +75,10 @@ class BookForm extends Component {
 
     render() {
         let delPath = '/reject/' + this.state.id
+
+        if (this.state.toDashboard === true) {
+            return <Redirect to='/' />
+          }
         return (
             <form className="admin-form text-center" onSubmit={this.onFormSumbit}>
             <div className="form-group">
@@ -95,7 +103,7 @@ class BookForm extends Component {
             </div>
             <div className="form-group">
                 <label for="download_link">Please add a download link here</label>
-                <input onChange={this.handleChange} name="download_link"   type="url" className="form-control" id="title"  placeholder="Enter a download link" />
+                <input  onChange={this.handleChange} name="download_link"   type="url" className="form-control red-border" id="title" style={{border: '1px solid red'}}  placeholder="Enter a download link" />
             </div>
     <div className="form-group">
     <label for="description">Short description</label>
