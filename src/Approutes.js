@@ -17,6 +17,7 @@ import AdminProfile from './components/admin/AdminProfile';
 import RequestedBooks from './components/admin/RequestBooks';
 import DeleteComponent from './components/admin/DeleteComponent';
 import RejectComponent from './components/admin/RejectComponent';
+import EditBook from './components/admin/EditBook';
 
 
 
@@ -40,6 +41,8 @@ const AppRoutes  = () => (
         <PrivateAdminRoute path='/admin-profile' component={AdminProfile} />
         <PrivateAdminRoute path='/delete/:id' component={DeleteComponent} />
         <PrivateAdminRoute path='/reject/:id' component={RejectComponent} />
+        <PrivateAdminRoute path='/edit/:id' component={EditBook} />
+
 
 
         

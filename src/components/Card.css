@@ -5,10 +5,20 @@
 .card:hover {
     border: 1px solid gray;
     width: 19rem;
-    height: 30rem;
+    height: 38rem;
 }
 
 img {
     width: 17rem;
     height: 20rem;
+}
+
+.btn-warning {
+    width: 100%;
+    background-color: yellow;
+    margin: 2% 0%;
+}
+
+.btn-danger {
+    float: right;
 }

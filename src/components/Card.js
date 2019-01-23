@@ -59,9 +59,10 @@ class Card extends Component {
             }
             else if (localStorage.getItem('admin')) {
                 item = downloadButton
-                let delPath = '/delete/' + this.state.book.id
-                deleteItem =  <button type="button" className="btn btn-danger"> <NavLink exact to={delPath} >Delete</NavLink></button>;
-                clickitm = <button type="button"  onClick={this.props.action}  className="btn btn-danger">Try</button>;
+                let delPath = '/delete/' + this.state.book.id;
+                let editPath = '/edit/' + this.state.book.id;
+                deleteItem =  <button type="button" className="btn btn-danger"> <NavLink exact to={delPath} > Delete</NavLink></button>;
+                clickitm = <button type="button"   className="btn btn-warning"><NavLink exact to={editPath} >Edit</NavLink></button>;
             }
             else {
                 item = startReading
