@@ -67,7 +67,6 @@ class Signup extends Component {
         this.setState({
           [name]: value
         }, () => { this.validateField(name, value) });
-        console.log(this.state)
     }
 
     onFormSumbit(event) {
@@ -75,13 +74,10 @@ class Signup extends Component {
         delete form['value']
         firebase.auth().createUserWithEmailAndPassword(form['email'], form['password'])
         .then((a) => {
-            console.log('success', a)
             this.setState({'redirect':true})
         }).catch((err) => {
-            console.log('error', err)
 
             if (err.message === "The email address is already in use by another account.") {
-                console.log('hvashta che ima takuv meil')
                 this.setState({'email_exists': err.message});
             }
            
@@ -94,7 +90,6 @@ class Signup extends Component {
     render() {
         if (this.state.email_exists) {
             var error_email = <div className="error">{this.state.email_exists}</div>
-            console.log('hvashta che ima takuv meil proverka')
         }
 
         if (this.state.redirect) {
@@ -110,15 +105,15 @@ class Signup extends Component {
                 <form className="form-signin" onSubmit={this.onFormSumbit}>
                 <h1 className="h3 mb-3 font-weight-normal">Please sign up</h1>
                 <div className="form-group">
-                    <label for="inputEmail" className="sr-only">Email address</label>
-                    <input onChange={this.handleChange} value={this.state.email} name="email" type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
+                    <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                    <input onChange={this.handleChange} value={this.state.email} name="email" type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
                 </div>
                 <div className="form-group">
-                    <label for="name" className="sr-only">Your name</label>
-                    <input onChange={this.handleChange} value={this.state.name} name="name" type="text" id="name" className="form-control" placeholder="Your name" required autofocus />
+                    <label htmlFor="name" className="sr-only">Your name</label>
+                    <input onChange={this.handleChange} value={this.state.name} name="name" type="text" id="name" className="form-control" placeholder="Your name" required autoFocus />
                 </div>
                 <div className="form-group">
-                    <label for="inputPassword" className="sr-only">Password</label>
+                    <label htmlFor="inputPassword" className="sr-only">Password</label>
                     <input onChange={this.handleChange} value={this.state.password} name="password" type="password" id="inputPassword" className="form-control" placeholder="Password" required />
                 </div>
                 <div className="form-group">

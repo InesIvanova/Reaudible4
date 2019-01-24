@@ -64,7 +64,6 @@ class ResetPass extends Component {
         this.setState({
             [name]: value
           }, () => { this.validateField(name, value) });
-          console.log(this.state)
     }
 
     onFormSumbit(event) {
@@ -73,13 +72,11 @@ class ResetPass extends Component {
         var user = firebase.auth().currentUser;
             user.updatePassword(form.pass).then((details) => {
             
-                console.log('stana', details)
                 localStorage.removeItem('token')
                 this.setState({
                     success_pass: true
                 })
             }).catch(function(error) {
-               console.log('ne stana')
             });
             event.preventDefault();
         
@@ -99,7 +96,7 @@ class ResetPass extends Component {
             <p>The new password should be at least 6 characters.</p>
             
             <div className="form-group">
-                <label for="pass" className="sr-only">Password</label>
+                <label htmlFor="pass" className="sr-only">Password</label>
                 <input name="pass" onChange={this.handleChange} type="password" id="pass" className="form-control" placeholder="New Password" required />
             </div>
             

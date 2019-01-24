@@ -8,8 +8,6 @@ var firebase = require('firebase')
 class Card extends Component {
     constructor(props) {
         super(props)
-        console.log('card', this.props)
-        console.log('knigiteeeeeeee',this.props.books)
         this.state = {
             book: this.props.books,
             
@@ -20,7 +18,6 @@ class Card extends Component {
                     timestampsInSnapshots:true
                 })
                 db.collection('books').doc(this.state.book.id).delete().then((res) => {
-                    console.log("Document successfully deleted!");
                     this.setState(this.state)
                     //pass to parent to rerender
                 })
@@ -28,7 +25,6 @@ class Card extends Component {
 
             rerender: () => {
                 this.forceUpdate();
-                console.log('updated? ', this.state)
             }
         }
         
@@ -41,7 +37,6 @@ class Card extends Component {
       
     }
     deleteBook(id) {
-        console.log('daleted', id);
     }
 
     

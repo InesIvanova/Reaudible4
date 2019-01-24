@@ -14,7 +14,6 @@ class Navbar extends Component {
     
     render() {
         const logout = () => {
-            console.log('logout')
             localStorage.removeItem('token')
             localStorage.removeItem('admin')
         }  

@@ -17,12 +17,10 @@ class RejectComponent extends Component {
     deleteItem(event) {
         const db = firebase.firestore();
          id = this.props.match.params.id
-         console.log(id)
         db.settings({
             timestampsInSnapshots:true
         })
         db.collection('requestedBooks').doc(id).delete().then((res) => {
-            console.log("Document successfully deleted!");
             this.setState({
                 toDashboard: true
             })
@@ -31,7 +29,6 @@ class RejectComponent extends Component {
     }
 
     redirect() {
-        console.log('to pr')
         this.setState({
             toDashboard: true
         })

@@ -30,7 +30,7 @@ class About extends Component {
                        
                 </div>
                 <div className="col-md-4">
-                    <a href="https://bg.linkedin.com/in/ines-ivanova-751292134" target="_blank">
+                    <div>
                     <div className="card mb-4 box-shadow about-card">
                     <img className="card-img-top about" src={logo} alt="Card image cap" />
                         <div className="card-body">
@@ -42,7 +42,7 @@ class About extends Component {
                             </div>
                         </div>
                     </div>
-                    </a>
+                    </div>
                 </div>
             <div className="col-md-4">
                 

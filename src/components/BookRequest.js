@@ -18,9 +18,8 @@ class BookRequest extends Component {
         this.onInputChanged = this.onInputChanged.bind(this);
         this.onSumbit = this.onSumbit.bind(this);
         for (let index = 1900; index <= 2019; index++) {
-            years.push(<option id={index}>{index}</option>);
+            years.push(<option key={index.toString()} id={index}>{index}</option>);
         }
-        console.log(years)
         this.onSumbit = this.onSumbit.bind(this);
 
 
@@ -41,9 +40,7 @@ class BookRequest extends Component {
     onSumbit(event) {
         let form = this.state;
         delete form['value']
-        console.log(form);
         
-        console.log(this.state.isSuccess)
 
         service.postABook(form).then(() => {
             this.setState({
@@ -64,34 +61,34 @@ class BookRequest extends Component {
         return (
             <form className="request-form text-center" onSubmit={this.onSumbit}>
         <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label htmlFor="exampleInputEmail1">Email address</label>
             <input onChange={this.onInputChanged} type="email" className="form-control" id="exampleInputEmail1" name="email" placeholder="Enter email" />
             <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
-            <label for="name">Your name</label>
+            <label htmlFor="name">Your name</label>
             <input name="name" onChange={this.onInputChanged} type="text" className="form-control" id="name"  placeholder="Enter your name" />
         </div>
         <div className="form-group">
-            <label for="title">Book's title</label>
+            <label htmlFor="title">Book's title</label>
             <input name="title" onChange={this.onInputChanged} type="text" className="form-control" id="title"  placeholder="Enter book's title" />
         </div>
         <div className="form-group">
-            <label for="author">Book's author</label>
+            <label htmlFor="author">Book's author</label>
             <input name="author" onChange={this.onInputChanged} type="text" className="form-control" id="author"  placeholder="Enter book's author" />
         </div>
 <div className="form-group">
-<label for="date">Choose a date of publicity</label>
+<label htmlFor="date">Choose a date of publicity</label>
 <select className="form-control" id="date" onChange={this.onInputChanged} name="release_date">
     {years}
 </select>
 </div>
 <div className="form-group">
-<label for="description">Short description</label>
+<label htmlFor="description">Short description</label>
 <textarea name="description" onChange={this.onInputChanged} className="form-control" id="description" rows="3"></textarea>
 </div>
 <div className="form-group">
-    <label for="image">Book's image url</label>
+    <label htmlFor="image">Book's image url</label>
     <input onChange={this.onInputChanged} type="url" className="form-control" id="image" name="image_url"  placeholder="Enter book's image url" />
 </div>
 

@@ -45,7 +45,6 @@ class Login extends Component {
          firebase.auth().signInWithEmailAndPassword(form['email'], form['password'])
         .then((res) =>  {
             // localStorage.setItem('token', res.user.uid)
-            console.log(res.user.email)
             const db = firebase.firestore();
             db.settings({
                 timestampsInSnapshots:true
@@ -53,9 +52,7 @@ class Login extends Component {
             
             let arr=[];
             db.collection("user_admin").get().then((querySnapshot) => {
-                console.log('admin query', querySnapshot)
                 querySnapshot.forEach((doc) => { 
-                    console.log('admin', doc.data())
                     if (doc.data().Admin === res.user.email) {
                         localStorage.setItem('admin', res.user.uid)
                          this.setState({'admin': res.user.uid})
@@ -69,7 +66,6 @@ class Login extends Component {
         })
         .catch((err) => {
             if (err.code === "auth/wrong-password") {
-                console.log('ima greshka', err)
                 this.setState({error: "email or password invalid"})
             }
             // ...
@@ -78,7 +74,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log('state',this.state)
         if(this.state.token) {
             return <Redirect to='/profile'/>
         }
@@ -95,10 +90,10 @@ class Login extends Component {
                         <img className="mb-4" src="https://slushalki.net/image/cache/catalog/product/Samsung/slushalki-net-samsung-premium-200x200.jpg" alt="" width="72" height="72" />
                         <h1 className="h3 mb-3 font-weight-normal">Please login</h1>
                         <div className="form-group">
-                        <label for="inputEmail" className="sr-only">Email address</label>
-                        <input name="email" onChange={this.handleChange} type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus />
+                        <label htmlFor="inputEmail" className="sr-only">Email address</label>
+                        <input name="email" onChange={this.handleChange} type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
                         </div>
-                        <label for="inputPassword" className="sr-only">Password</label>
+                        <label htmlFor="inputPassword" className="sr-only">Password</label>
                         <input name="password" onChange={this.handleChange} type="password" id="inputPassword" className="form-control" placeholder="Password" required />
                         <div className="checkbox mb-3">
                         <label>

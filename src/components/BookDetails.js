@@ -15,15 +15,12 @@ class BookDetails extends Component {
 
     componentDidMount() {
         let self = this;
-        console.log('shte vika')
         service.getBook().then(function(querySnapshot) {
             querySnapshot.forEach(q => {
                 if(q.id === idBook) {
-                    console.log('namri',q.id)
                     self.setState({
                         book: q.data()
                     })
-                    console.log(self.state)
                 }
                 
             });

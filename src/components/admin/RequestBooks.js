@@ -17,7 +17,6 @@ class RequestedBooks extends Component {
                 var obj = book.data()
                 obj['id'] = book.id;
                 reqestedBooks.push(obj)
-                console.log('req books', reqestedBooks)       
             });
             for (let index = 0; index < reqestedBooks.length; index++) {
                 this.setState({

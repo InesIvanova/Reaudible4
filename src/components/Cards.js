@@ -47,19 +47,17 @@ class Cards extends Component {
         
         db.collection("books").get().then((querySnapshot) => {
             let arr=[];
-            console.log('query', querySnapshot)
             querySnapshot.forEach((doc) => { 
                 var obj = doc.data()
                 obj['id'] = doc.id;
                 arr.push(obj)
-                console.log(arr)       
             });
             
             for (let index = 0; index < arr.length; index++) {
                 self.setState({
                     value: arr[index]
                 })
-                items.push(<div className="col-md-3 cards-margin"><Card action={this.handler} books={self.state.value}></Card></div>)        
+                items.push(<div key={index.toString()} className="col-md-3 cards-margin"><Card action={this.handler} books={self.state.value}></Card></div>)        
             }
             self.setState({
                 value: []
