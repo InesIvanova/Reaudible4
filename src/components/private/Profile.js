@@ -20,7 +20,7 @@ class Profile extends Component {
                 <div className="col-md-5">
                 <div className="text-center box">
                     <h4>Change password</h4>
-                    <button className="btn btn-warning"><NavLink className="buttonText" exact to='/reset-pass'>Go</NavLink></button>
+                    <button className="btn btn-primary" style={{backgroundColor: 'yellow'}}><NavLink className="buttonText" exact to='/reset-pass'>Go</NavLink></button>
                 </div>
                 </div>
             </div>

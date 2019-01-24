@@ -17,7 +17,7 @@ class AdminProfile extends Component {
                 <div className="col-md-5">
                 <div className="text-center box">
                     <h4>Manage requested books</h4>
-                    <button className="btn btn-warning"><NavLink className="buttonText" exact to='/books/requested'>Go</NavLink></button>
+                    <button className="btn btn-primary" style={{backgroundColor: 'yellow'}}><NavLink className="buttonText" exact to='/books/requested'>Go</NavLink></button>
                 </div>
                 </div>
             </div>

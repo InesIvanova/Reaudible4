@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {NavLink, Link} from 'react-router-dom';
 import logo from './0.jpg';
+import './About.css'
 
 
 class About extends Component {
@@ -11,11 +13,11 @@ class About extends Component {
         <div> 
         <section className="jumbotron text-center">
             <div className="container">
-                <h1 className="jumbotron-heading">Album example</h1>
-                <p className="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+                <h1 className="jumbotron-heading">Reaudible</h1>
+                <p className="lead text-muted">Reaudible was started  back in 2019 as a student project. Soon it became popular and more and more people use our site to find the books they love.</p>
                 <p>
-                    <a href="#" className="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" className="btn btn-secondary my-2">Secondary action</a>
+                   <button className="btn btn-primary my-2"> <NavLink exact to="/sign-up" style={{color: 'black'}}>Start for free</NavLink></button>
+                   <button className="btn btn-secondary my-2"> <NavLink exact to="/login">Login</NavLink></button>
                 </p>
             </div>
         </section>
@@ -29,16 +31,14 @@ class About extends Component {
                 </div>
                 <div className="col-md-4">
                     <a href="https://bg.linkedin.com/in/ines-ivanova-751292134" target="_blank">
-                    <div className="card mb-4 box-shadow">
-                    <img className="card-img-top" src={logo} alt="Card image cap" />
+                    <div className="card mb-4 box-shadow about-card">
+                    <img className="card-img-top about" src={logo} alt="Card image cap" />
                         <div className="card-body">
-                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 className="card-text">Founder: Ines Ivanova</h5>
                             <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
-                                <button type="button" className="btn btn-sm btn-outline-secondary">Edit</button>
+                                <button type="button" className="btn btn-sm btn-outline-secondary"><a href="https://bg.linkedin.com/in/ines-ivanova-751292134" target="_blank" >LinkedIn</a></button>
                             </div>
-                            <small className="text-muted">9 mins</small>
                             </div>
                         </div>
                     </div>

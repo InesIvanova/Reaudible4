@@ -1,0 +1,9 @@
+.about {
+    height: 19rem;
+}
+
+.card:hover {
+    border: 1px solid gray;
+    width: 18rem;
+    height: 31rem;
+}
