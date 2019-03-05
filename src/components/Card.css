@@ -2,11 +2,11 @@
     cursor: pointer;
 }
 
-.card:hover {
+/* .card:hover {
     border: 1px solid gray;
     width: 19rem;
     height: 38rem;
-}
+} */
 
 img {
     width: 17rem;

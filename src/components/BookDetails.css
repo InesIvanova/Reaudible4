@@ -9,3 +9,7 @@ img {
 .title span {
     color: grey;
 }
+
+.styleImageDetails {
+    width: 60%;
+}

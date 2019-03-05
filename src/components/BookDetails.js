@@ -33,7 +33,7 @@ class BookDetails extends Component {
         <div className="container">
         <div className="row">
                 <div className="col-md-6">
-                    <img src={this.state.book.image_url} alt="snimka" />
+                    <img className="styleImageDetails" src={this.state.book.image_url} alt="picture" />
                 </div>
                 <div className="col-md-6">
                     <div className="title">

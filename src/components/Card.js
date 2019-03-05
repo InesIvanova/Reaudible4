@@ -44,7 +44,7 @@ class Card extends Component {
    
 
     render() {
-        let downloadButton = <a download href={this.state.book.download_link}  className="btn btn-primary">Download pdf</a>
+        let downloadButton = <a download href={this.state.book.download_link} target="_blank" className="btn btn-primary">Download pdf</a>
         let startReading = <NavLink className="btn btn-primary" exact to ='login'>Start reading</NavLink>
         let item = ''
         let deleteItem = '';
@@ -56,8 +56,8 @@ class Card extends Component {
                 item = downloadButton
                 let delPath = '/delete/' + this.state.book.id;
                 let editPath = '/edit/' + this.state.book.id;
-                deleteItem =  <button type="button" className="btn btn-danger"> <NavLink exact to={delPath} > Delete</NavLink></button>;
-                clickitm = <button type="button"   className="btn btn-warning"><NavLink exact to={editPath} >Edit</NavLink></button>;
+                deleteItem =   <NavLink className="btn btn-danger" exact to={delPath} > Delete</NavLink>;
+                clickitm = <NavLink className="btn btn-warning" exact to={editPath} >Edit</NavLink>;
             }
             else {
                 item = startReading
@@ -79,8 +79,7 @@ class Card extends Component {
                     <div className="col-md-5">{deleteItem}</div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12">{clickitm}</div>
-                    
+                    <div className="col-md-12">{clickitm}</div>          
                 </div>
                 
                 

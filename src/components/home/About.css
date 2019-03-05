@@ -3,7 +3,8 @@
 }
 
 .card:hover {
-    border: 1px solid gray;
-    width: 18rem;
-    height: 31rem;
+    border: none;
+    /* width: 18rem; */
+    /* height: 31rem; */
 }
+
