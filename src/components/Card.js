@@ -45,7 +45,8 @@ class Card extends Component {
 
     render() {
         let downloadButton = <a download href={this.state.book.download_link} target="_blank" className="btn btn-primary">Download pdf</a>
-        let startReading = <NavLink className="btn btn-primary" exact to ='login'>Start reading</NavLink>
+        let startReading = <NavLink className="btn btn-primary" exact to ='/login/'>Start reading</NavLink>
+        // <NavLink className="btn btn-danger" exact to={delPath} > Delete</NavLink>;
         let item = ''
         let deleteItem = '';
         let clickitm = '';

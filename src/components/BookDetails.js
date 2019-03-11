@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+
 import './BookDetails.css'
 let service = require('../config/bookService');
+
 
 
 let idBook = '';
@@ -45,7 +48,7 @@ class BookDetails extends Component {
                     <div className="title">
                         <p>Description: <span> {this.state.book.description}</span></p>
                     </div>
-                    <button className="btn btn-primary">Read the book!</button>
+                    <NavLink className="btn btn-primary" exact to ='/login/'>Read the book!</NavLink>
                 </div>
            </div></div>
         )
